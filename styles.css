@@ -47,7 +47,7 @@ form {
 }
 
 input[type="email"] {
-    width: 100%;
+    width: 90%; /* Reduced width slightly to fit better */
     padding: 12px; /* Slightly larger padding for a bigger field */
     margin-bottom: 10px;
     border: 1px solid #FF4500;

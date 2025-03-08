@@ -12,7 +12,7 @@
         <h1>Empowering Decisions with the Glory of Truth</h1>
         <p>Stay updated with the latest insights and updates from Fynx AI.</p>
 
-        <form id="subscribeForm" target="_blank" action="https://formsubmit.co/subscriber@fynx.org" method="POST">
+        <form id="subscribeForm" action="https://formsubmit.co/subscriber@fynx.org" method="POST">
             <div class="form-group">
                 <input 
                     type="email" 
@@ -38,22 +38,25 @@
         document.addEventListener("DOMContentLoaded", function () {
             const form = document.getElementById("subscribeForm");
             const feedback = document.getElementById("feedback");
-            const submitBtn = document.getElementById("submitBtn");
 
-            // Check if the user has already submitted
-            if (localStorage.getItem("fynx_subscribed")) {
+            // Check if the user has already subscribed
+            if (localStorage.getItem("fynx_subscribed") === "true") {
                 form.style.display = "none"; // Hide form
                 feedback.classList.remove("hidden");
                 feedback.innerText = "You've already subscribed. Thank you!";
                 feedback.style.color = "green";
+                return; // Prevent further code from running
             }
 
             form.addEventListener("submit", function (event) {
-                // Save submission status in localStorage
+                // Prevent submission if already submitted
+                if (localStorage.getItem("fynx_subscribed") === "true") {
+                    event.preventDefault();
+                    return;
+                }
+
+                // Set localStorage flag AFTER successful submission
                 localStorage.setItem("fynx_subscribed", "true");
-                feedback.classList.remove("hidden");
-                feedback.innerText = "Thank you for subscribing!";
-                feedback.style.color = "green";
             });
         });
     </script>

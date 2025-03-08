@@ -25,13 +25,14 @@
 
     <script>
         document.getElementById("subscribeForm").addEventListener("submit", function(event) {
-            event.preventDefault();
             const emailInput = document.getElementById("email").value;
             const feedback = document.getElementById("feedback");
-
-            if (emailInput) {
+    
+            if (!emailInput) {
+                event.preventDefault(); // Only block submission if the email is invalid
                 feedback.classList.remove("hidden");
-                feedback.innerText = "Thank you for subscribing!";
+                feedback.innerText = "Please enter a valid email address.";
+                feedback.style.color = "red";
             }
         });
     </script>

@@ -12,28 +12,38 @@
         <h1>Empowering Decisions with the Glory of Truth</h1>
         <p>Stay updated with the latest insights and updates from Fynx AI.</p>
 
-        <form id="subscribeForm" action="https://formsubmit.co/subscriber@fynx.org" method="POST">
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        <form target="_blank" action="https://formsubmit.co/subscriber@fynx.org" method="POST">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                    </div>
+                    <div class="col">
+                        <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <textarea placeholder="Your Message" class="form-control" name="message" rows="5" required></textarea>
+            </div>
+
             <input type="hidden" name="_subject" value="New Subscription for Fynx AI!">
             <input type="hidden" name="_next" value="https://www.fynx.org/thank-you">
             <input type="hidden" name="_captcha" value="false">
-            <input type="submit" value="Subscribe">
-        </form>
 
+            <button type="submit" class="btn btn-lg btn-dark btn-block">Subscribe</button>
+        </form>
+        
         <p id="feedback" class="hidden"></p>
     </div>
 
     <script>
-        document.getElementById("subscribeForm").addEventListener("submit", function(event) {
-            const emailInput = document.getElementById("email").value;
+        document.getElementById("subscribeForm")?.addEventListener("submit", function() {
             const feedback = document.getElementById("feedback");
-    
-            if (!emailInput) {
-                event.preventDefault(); // Only block submission if the email is invalid
-                feedback.classList.remove("hidden");
-                feedback.innerText = "Please enter a valid email address.";
-                feedback.style.color = "red";
-            }
+            feedback.classList.remove("hidden");
+            feedback.innerText = "Thank you for subscribing!";
+            feedback.style.color = "green";
         });
     </script>
 </body>

@@ -11,10 +11,11 @@
         <img src="fynx_logo_black_bg_300x300.png" alt="Fynx AI Logo" class="logo">
         <h1>Empowering Decisions with the Glory of Truth</h1>
         <p>Stay updated with the latest insights and updates from Fynx AI.</p>
-        <form id="subscribeForm">
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        <form action="https://formsubmit.co/subscribe@fynx.org" method="POST">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <input type="hidden" name="_subject" value="New Subscription Request">
+            <input type="hidden" name="_captcha" value="false">
             <input type="submit" value="Subscribe">
-            <p id="feedback" class="hidden">Thank you for subscribing!</p>
         </form>
     </div>
 
